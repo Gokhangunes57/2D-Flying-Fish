@@ -58,5 +58,5 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 /Flying Fish/Library/PackageCache/*
-
+/Flying Fish/Temp/*
 
