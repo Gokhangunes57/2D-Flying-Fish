@@ -46,7 +46,7 @@ public class Fish : MonoBehaviour
                 angle += 4;
             }
         }
-        else if(rb.velocity.y<0)
+        else if(rb.velocity.y<-1.3f)
         {
             if(angle>=MinAngle)
             {
