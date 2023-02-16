@@ -9,8 +9,13 @@ public class LeftMovement : MonoBehaviour
     private float width;
     void Start()
     {
-        box = GetComponent<BoxCollider2D>();
-        width = box.size.x;
+
+        if (gameObject.CompareTag("ground"))
+        {
+            box = GetComponent<BoxCollider2D>();
+            width = box.size.x;
+        }
+        
         
     }
 
