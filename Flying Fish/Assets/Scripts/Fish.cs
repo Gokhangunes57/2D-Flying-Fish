@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,12 +21,17 @@ public class Fish : MonoBehaviour
     void Update()
     {
      FishSwim();
-     FishRotation();
+     
 
         
         
             
        
+    }
+
+    private void FixedUpdate()
+    {
+        FishRotation();
     }
 
     void FishSwim()
@@ -54,5 +60,13 @@ public class Fish : MonoBehaviour
             }
         }
         transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("obstacle"))
+        {
+          Debug.Log("carpisma algılandı");
+        }
     }
 }
