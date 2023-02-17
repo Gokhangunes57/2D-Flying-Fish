@@ -10,6 +10,7 @@ public class Fish : MonoBehaviour
    private int angle;
    private int MaxAngle = 20;
    private int MinAngle = -60;
+   public Score score;
    
     void Start()
     {
@@ -66,7 +67,7 @@ public class Fish : MonoBehaviour
     {
         if (col.gameObject.CompareTag("obstacle"))
         {
-          Debug.Log("carpisma algılandı");
+          score.Scored();
         }
     }
 }
