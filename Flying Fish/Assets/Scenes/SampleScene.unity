@@ -779,7 +779,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.84
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -816,6 +816,7 @@ MonoBehaviour:
   speed: 9
   score: {fileID: 245791363}
   gameManager: {fileID: 1480129235}
+  fishDead: {fileID: -1850857269, guid: 97c0a7d5cbf914143bec93530c5cbbb5, type: 3}
 --- !u!95 &1688637848
 Animator:
   serializedVersion: 5

@@ -13,10 +13,17 @@ public class Fish : MonoBehaviour
    public Score score;
    private bool touchGround;
    public GameManager gameManager;
+   public Sprite fishDead;
+   private SpriteRenderer sp;
+   Animator anim;
+   
    
     void Start()
     {
       rb=GetComponent<Rigidbody2D>();  
+      sp = GetComponent<SpriteRenderer>();
+      anim = GetComponent<Animator>();
+      
      
     }
 
@@ -105,5 +112,7 @@ public class Fish : MonoBehaviour
     {
         touchGround = true;
         transform.rotation = Quaternion.Euler(0, 0, -90);
+        sp.sprite = fishDead;
+        anim.enabled = false;
     }
 }
