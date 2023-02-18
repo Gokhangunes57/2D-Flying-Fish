@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static Vector2 bottomLeft;
+    public static bool isGameOver;
+    
     
     private void Awake()
     {
@@ -14,7 +16,7 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
-        
+        isGameOver = false;
     }
 
     // Update is called once per frame

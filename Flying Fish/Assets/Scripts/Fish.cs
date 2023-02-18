@@ -69,5 +69,18 @@ public class Fish : MonoBehaviour
         {
           score.Scored();
         }
+        else if (col.gameObject.CompareTag("column"))
+        {
+            Debug.Log("Game Over kolona çarptın gerizekalı");
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.CompareTag("ground"))
+        {
+            Debug.Log("Game Over");
+            
+        }
     }
 }
