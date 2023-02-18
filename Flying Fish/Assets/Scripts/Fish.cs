@@ -11,6 +11,8 @@ public class Fish : MonoBehaviour
    private int MaxAngle = 20;
    private int MinAngle = -60;
    public Score score;
+   private bool touchGround;
+   public GameManager gameManager;
    
     void Start()
     {
@@ -37,11 +39,12 @@ public class Fish : MonoBehaviour
 
     void FishSwim()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)&&GameManager.isGameOver==false)
         {
             rb.velocity = Vector2.zero;
             rb.velocity = new Vector2(rb.velocity.x, speed);
         }
+        
     }
 
     void FishRotation()
@@ -60,7 +63,12 @@ public class Fish : MonoBehaviour
                 angle -= 2;
             }
         }
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        if (touchGround==false)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, angle); 
+        }
+       
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -71,7 +79,7 @@ public class Fish : MonoBehaviour
         }
         else if (col.gameObject.CompareTag("column"))
         {
-            Debug.Log("Game Over kolona çarptın gerizekalı");
+            gameManager.GameOver();
         }
     }
 
@@ -79,8 +87,23 @@ public class Fish : MonoBehaviour
     {
         if(col.gameObject.CompareTag("ground"))
         {
-            Debug.Log("Game Over");
-            
+            if (GameManager.isGameOver==false)
+            {
+                gameManager.GameOver();
+                GameOver();
+                
+            }
+            else
+            {
+               GameOver();
+            }
+          
         }
+    }
+    
+    void GameOver()
+    {
+        touchGround = true;
+        transform.rotation = Quaternion.Euler(0, 0, -90);
     }
 }

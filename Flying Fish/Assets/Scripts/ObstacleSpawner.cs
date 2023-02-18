@@ -21,14 +21,18 @@ public class ObstacleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >=MaxTime)
-        { 
+        if (GameManager.isGameOver==false)
+        {
+            timer += Time.deltaTime;
+            if (timer >=MaxTime)
+            { 
             
-            randomY = Random.Range(MinY, MaxY);
-            SpawnObstacle();
-            timer = 0;
+                randomY = Random.Range(MinY, MaxY);
+                SpawnObstacle();
+                timer = 0;
+            }  
         }
+        
       
     }
     
