@@ -16,11 +16,13 @@ public class Fish : MonoBehaviour
    public Sprite fishDead;
    private SpriteRenderer sp;
    Animator anim;
+   public ObstacleSpawner obstacleSpawner;
    
    
     void Start()
     {
       rb=GetComponent<Rigidbody2D>();  
+      rb.gravityScale = 0;
       sp = GetComponent<SpriteRenderer>();
       anim = GetComponent<Animator>();
       
@@ -48,8 +50,26 @@ public class Fish : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)&&GameManager.isGameOver==false)
         {
-            rb.velocity = Vector2.zero;
-            rb.velocity = new Vector2(rb.velocity.x, speed);
+            if (GameManager.isGameStarted==false)
+            {
+              rb.gravityScale = 4;
+              rb.velocity = Vector2.zero;
+              rb.velocity = new Vector2(rb.velocity.x, speed);
+              obstacleSpawner.SpawnObstacle();
+              GameManager.GameHasStarted();
+              
+                
+            }
+            
+            else{
+                rb.velocity = Vector2.zero;
+                rb.velocity = new Vector2(rb.velocity.x, speed);
+                
+            }
+            
+            
+            
+            
         }
         
     }

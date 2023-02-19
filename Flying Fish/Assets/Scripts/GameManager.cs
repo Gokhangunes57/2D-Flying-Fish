@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static Vector2 bottomLeft;
     public static bool isGameOver;
     public GameObject gameOverpanel;
+    public static bool isGameStarted;
     
     
     private void Awake()
@@ -24,6 +25,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         isGameOver = false;
+        isGameStarted = false;
+    }
+    public static void GameHasStarted()
+    {
+        isGameStarted = true;
     }
 
     // Update is called once per frame
