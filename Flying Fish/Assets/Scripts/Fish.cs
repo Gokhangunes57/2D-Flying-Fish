@@ -19,6 +19,7 @@ public class Fish : MonoBehaviour
    public ObstacleSpawner obstacleSpawner;
    
    
+   
     void Start()
     {
       rb=GetComponent<Rigidbody2D>();  
@@ -56,7 +57,8 @@ public class Fish : MonoBehaviour
               rb.velocity = Vector2.zero;
               rb.velocity = new Vector2(rb.velocity.x, speed);
               obstacleSpawner.SpawnObstacle();
-              GameManager.GameHasStarted();
+              gameManager.GameHasStarted();
+              
               
                 
             }
