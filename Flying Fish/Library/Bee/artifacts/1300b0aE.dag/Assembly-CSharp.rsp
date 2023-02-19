@@ -376,6 +376,7 @@
 "Assets/Scripts/Fish.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/LeftMovement.cs"
+"Assets/Scripts/Medals.cs"
 "Assets/Scripts/ObstacleSpawner.cs"
 "Assets/Scripts/Score.cs"
 -langversion:9.0

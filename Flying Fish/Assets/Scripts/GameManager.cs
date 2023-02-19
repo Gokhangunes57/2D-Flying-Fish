@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverpanel;
     public static bool isGameStarted;
     public GameObject getReady;
-    
+    public static int gamescore;
+    public GameObject score;
     
     private void Awake()
     {
@@ -46,5 +47,9 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         gameOverpanel.SetActive(true);
+        score.SetActive(false);
+        gamescore = score.GetComponent<Score>().GetScore();
+        
+
     }
 }
