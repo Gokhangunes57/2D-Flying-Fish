@@ -17,6 +17,9 @@ public class Fish : MonoBehaviour
    private SpriteRenderer sp;
    Animator anim;
    public ObstacleSpawner obstacleSpawner;
+   [SerializeField] private AudioSource swim,hit,point;
+   
+   
    
    
    
@@ -51,6 +54,7 @@ public class Fish : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)&&GameManager.isGameOver==false)
         {
+            swim.Play();
             if (GameManager.isGameStarted==false)
             {
               rb.gravityScale = 4;
@@ -105,10 +109,12 @@ public class Fish : MonoBehaviour
         if (col.gameObject.CompareTag("obstacle"))
         {
           score.Scored();
+          point.Play();
         }
         else if (col.gameObject.CompareTag("column"))
         {
             gameManager.GameOver();
+            FishDeadSound();
         }
     }
 
@@ -120,6 +126,7 @@ public class Fish : MonoBehaviour
             {
                 gameManager.GameOver();
                 GameOver();
+                FishDeadSound();
                 
             }
             else
@@ -129,7 +136,11 @@ public class Fish : MonoBehaviour
           
         }
     }
-    
+    void FishDeadSound()
+    {
+        hit.Play();
+    }
+
     void GameOver()
     {
         touchGround = true;
