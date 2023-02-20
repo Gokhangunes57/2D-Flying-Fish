@@ -111,7 +111,7 @@ public class Fish : MonoBehaviour
           score.Scored();
           point.Play();
         }
-        else if (col.gameObject.CompareTag("column"))
+        else if (col.gameObject.CompareTag("column")&&GameManager.isGameOver==false)
         {
             gameManager.GameOver();
             FishDeadSound();
